@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Tere360 - Formulário</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+
+    <nav class="white">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">
+                <img class="responsive-img" id="logo" src="/images/tere360.png"/>
+            </a>
+        </div>
+    </nav>
+
+    <br><br>
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 m12 l12 xl6 offset-xl3">
+                    <div class="card">
+                        <div class="card-content grey-text text-darken-1">
+                            <span class="card-title">
+                                <h4 class="blue-text text-lighten-2">Reserve um horário</h4>
+                            </span>
+
+                            <div class="row">
+                                <form id="formulario" onsubmit="agendarHorario(event)" class="col s12">
+                                    <input type="hidden" id="id" name="id" value="<%= estabelecimento._id %>">
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">account_circle</i>
+                                            <input id="nome" type="text" class="validate" required>
+                                            <label for="nome">Nome</label>
+                                            <span class="helper-text" data-error="O usuário é obrigatório!" data-success="Ok!"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">email</i>
+                                            <input id="email" type="email" class="validate" required>
+                                            <label for="email">E-mail</label>
+                                            <span class="helper-text" data-error="O e-mail é obrigatório!" data-success="Ok!"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">phone</i>
+                                            <input id="telefone" type="tel" class="validate" required>
+                                            <label for="telefone">Telefone</label>
+                                            <span class="helper-text" data-error="O telefone é obrigatório!" data-success="Ok!"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">event</i>
+                                            <input id="data" type="text" class="datepicker" required>
+                                            <label for="data">Data</label>
+                                            <span class="helper-text" data-error="A data é obrigatória!" data-success="Ok!"></span>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix">access_time</i>
+                                            <input id="hora" type="text" class="timepicker" required>
+                                            <label for="hora">Hora</label>
+                                            <span class="helper-text" data-error="A hora é obrigatória!" data-success="Ok!"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">view_headline</i>
+                                            <textarea id="observacao" class="materialize-textarea"></textarea>
+                                            <label for="observacao">Observação</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="center">
+                                        <button class="btn waves-effect waves-light btn-large blue lighten-2" type="submit" name="action">
+                                            Enviar
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal1" class="modal teal lighten-2 white-text">
+                <div class="modal-content">
+                    <h4>Enviado com sucesso!!!</h4>
+                    <div class="center-align white-text">
+                        <i class="large material-icons">mood</i>
+                        <p>Agora, basta apenas aguardar que entraremos em contato.</p>
+                    </div>
+                </div>
+                <div class="modal-footer teal lighten-3">
+                    <a href="#!" class="modal-close waves-effect waves-green btn teal lighten-2 white-text">Ok</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                i18n: {
+                    cancel: 'Cancelar',
+                    clear: 'Limpar',
+                    done: 'Ok',
+                    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                    weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+                    weekdaysAbbrev: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+                    monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $('.timepicker').timepicker({
+                i18n: {
+                    cancel: 'Cancelar',
+                    clear: 'Limpar',
+                    done: 'Ok'
+                },
+            });
+        });
+    </script>
+
+    <script>
+        function agendarHorario(event) {
+            event.preventDefault();
+            let id = document.querySelector('#id').value;
+            let nome = document.querySelector('#nome').value;
+            let email = document.querySelector('#email').value;
+            let telefone = document.querySelector('#telefone').value;
+            let data = document.querySelector('#data').value;
+            let hora = document.querySelector('#hora').value;
+            let observacao = document.querySelector('#observacao').value;
+
+            
+
+            if (id && nome && email && telefone && data && hora){
+                fetch('/estabelecimento/formulario', {
+                    method: 'post',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({id, nome, email, telefone, data, hora, observacao})
+                })
+                .then(resp => resp.json())
+                .then(() => {
+                    $('#modal1').modal();
+                    $('#modal1').modal('open');
+                    document.getElementById("formulario").reset();
+                })
+                .catch(() => {
+                    console.error('Ocorreu um erro!')
+                })
+            }
+        }
+    </script>
+    </body>
+</html>

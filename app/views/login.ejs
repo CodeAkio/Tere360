@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Tere360 - Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+
+    <nav class="white">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">
+                <img class="responsive-img" id="logo" src="/images/tere360.png"/>
+            </a>
+        </div>
+    </nav>
+
+    <br><br>
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 m6 offset-m3">
+                    <div class="card">
+                        <div class="card-content grey-text text-darken-1">
+                            <span class="card-title">
+                                <h4 class="blue-text text-lighten-2">Login</h4>
+                            </span>
+
+                            <br>
+
+                            <div class="center-align blue-text text-lighten-2">
+                                <i class="large material-icons">fingerprint</i>
+                            </div>
+
+                            <br><br>
+
+                            <div class="row">
+                                <form onsubmit="login(event)" class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">account_circle</i>
+                                            <input id="user" type="text" class="validate" required>
+                                            <label for="user">Usuario</label>
+                                            <span class="helper-text" data-error="O usuário é obrigatório!" data-success="Ok!"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input id="password" type="password" class="validate" required>
+                                            <label for="password">Senha</label>
+                                            <span class="helper-text" data-error="A senha é obrigatória!" data-success="Ok!"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="center">
+                                        <button class="btn waves-effect waves-light btn-large blue lighten-2" type="submit" name="action">
+                                            Login
+                                            <i class="material-icons right">fingerprint</i>
+                                        </button>
+                                    </div>
+
+                                    <br>
+                                    <div id="validate-login" class="red-text"></div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+
+    <script>
+        function login(event) {
+            event.preventDefault();
+            let user = document.querySelector('#user').value;
+            let password = document.querySelector('#password').value;
+
+            if (user && password) {
+                fetch('/login', {
+                    method: 'post',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({name: user, password: password})
+                })
+                .then(resp => resp.json())
+                .then(resp => {
+                    if (resp.token) {
+                        localStorage['token'] = resp.token;
+                        window.location.href = "/estabelecimento"
+                    } else {
+                        document.getElementById('validate-login').innerHTML = 'Usuário ou senha inválido(s)!'
+                    }
+                })
+                .catch(() => {
+                    console.error('Ocorreu um erro!')
+                })
+            }
+        }
+    </script>
+</html>

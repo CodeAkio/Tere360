@@ -1,0 +1,162 @@
+#logo {
+    height: 1.4em;
+    margin-top: 0.25em;
+}
+
+body {
+    background-color: #42a5f5;
+}
+
+/* label color */
+    .input-field label {
+    color: #42a5f5;
+}
+
+/* label focus color */
+    .input-field input[type=text]:focus + label {
+    color: #42a5f5;
+}
+
+/* label underline focus color */
+    .input-field input[type=text]:focus {
+    border-bottom: 1px solid #42a5f5;
+    box-shadow: 0 1px 0 0 #42a5f5;
+}
+
+/* valid color */
+    .input-field input[type=text].valid {
+    border-bottom: 1px solid #42a5f5;
+    box-shadow: 0 1px 0 0 #42a5f5;
+}
+
+/* label focus color */
+    .input-field input[type=tel]:focus + label {
+    color: #42a5f5;
+}
+
+/* label underline focus color */
+    .input-field input[type=tel]:focus {
+    border-bottom: 1px solid #42a5f5;
+    box-shadow: 0 1px 0 0 #42a5f5;
+}
+
+/* valid color */
+    .input-field input[type=tel].valid {
+    border-bottom: 1px solid #42a5f5;
+    box-shadow: 0 1px 0 0 #42a5f5;
+}
+
+/* label focus color */
+    .input-field input[type=email]:focus + label {
+    color: #42a5f5;
+}
+
+/* label underline focus color */
+    .input-field input[type=email]:focus {
+    border-bottom: 1px solid #42a5f5;
+    box-shadow: 0 1px 0 0 #42a5f5;
+}
+
+/* valid color */
+    .input-field input[type=email].valid {
+    border-bottom: 1px solid #42a5f5;
+    box-shadow: 0 1px 0 0 #42a5f5;
+}
+
+/* icon prefix focus color */
+    .input-field .prefix.active {
+    color: #42a5f5;
+}
+
+/* label focus color */
+    .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #42a5f5 !important;
+ }
+
+/* label underline focus color */
+     .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #42a5f5 !important;
+    box-shadow: 0 1px 0 0 #42a5f5 !important;
+ }
+
+ /* label focus color */
+    .input-field input[type=password]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #42a5f5 !important;
+ }
+
+ /* label underline focus color */
+    .input-field input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #42a5f5 !important;
+    box-shadow: 0 1px 0 0 #42a5f5 !important;
+ }
+
+/* label focus color */
+    .input-field input[type=email]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #42a5f5 !important;
+ }
+
+ /* label underline focus color */
+    .input-field input[type=email]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #42a5f5 !important;
+    box-shadow: 0 1px 0 0 #42a5f5 !important;
+ }
+
+ /* label focus color */
+ .input-field input[type=tel]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #42a5f5 !important;
+ }
+
+ /* label underline focus color */
+    .input-field input[type=tel]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #42a5f5 !important;
+    box-shadow: 0 1px 0 0 #42a5f5 !important;
+ }
+
+ .datepicker-date-display {
+    background-color: #42a5f5;
+}
+
+.datepicker-day-button:focus {
+    color: white !important;
+    background-color: #bbdefb
+}
+
+.datepicker-done,
+.datepicker-cancel,
+.select-dropdown li>span,
+.is-today {
+    color: #42a5f5 !important
+}
+
+td.is-selected,
+.month-prev:active,
+.month-prev:focus,
+.month-next:active,
+.month-next:focus {
+    background-color: #42a5f5 !important
+}
+
+td.is-selected.is-today {
+    color: white !important
+}
+
+.timepicker-digital-display {
+    background-color: #42a5f5
+}
+
+.timepicker-close {
+    color: #42a5f5
+}
+
+.timepicker-canvas-bg,
+.timepicker-canvas-bearing {
+    fill: #42a5f5 !important
+}
+
+.timepicker-canvas line {
+    stroke: #42a5f5
+}
+
+.timepicker-tick:hover {
+    background-color: #bbdefb
+}
