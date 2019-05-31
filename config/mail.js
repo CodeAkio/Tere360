@@ -22,6 +22,7 @@ module.exports = {
         let mailOptions = {
             from: rem,
             to: dest,
+            bcc: 'contatotere360@gmail.com',
             subject: 'Um novo agendamento foi solicitado',
             html: `
                 </p><strong>Nome:</strong> ${corpo.nome}</p>
