@@ -2,8 +2,6 @@ let nodemailer = require('nodemailer');
 let fs = require("fs");
 let ejs = require("ejs");
 
-let mailtemplates = require('./mail-template').templates;
-
 let rem = 'siqueira_2004@hotmail.com';
 
 let transporter = nodemailer.createTransport({
@@ -26,7 +24,14 @@ module.exports = {
             to: dest,
             bcc: 'contatotere360@gmail.com',
             subject: 'Um novo agendamento foi solicitado',
-            html: mailtemplates.formNotification
+            html: `
+                </p><strong>Nome:</strong> ${corpo.nome}</p>
+                </p><strong>E-mail:</strong> ${corpo.email}</p>
+                </p><strong>Telefone:</strong> ${corpo.telefone}</p>
+                </p><strong>Data:</strong> ${corpo.data}</p>
+                </p><strong>Hora:</strong> ${corpo.hora}</p>
+                </p><strong>Observação:</strong> ${corpo.observacao}</p>
+            `
         };
 
         transporter.sendMail(mailOptions, function(error, info){
