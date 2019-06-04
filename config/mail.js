@@ -1,6 +1,4 @@
 let nodemailer = require('nodemailer');
-let fs = require("fs");
-let ejs = require("ejs");
 
 let template = require('./mail-template');
 

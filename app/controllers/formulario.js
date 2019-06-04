@@ -21,7 +21,8 @@ module.exports = (app) => {
 
             Estabelecimento.findById(id).exec().then(estabelecimento => {
                 let rem = estabelecimento.email;
-                let statusError = emailSender(rem, {nome, email, telefone, data, hora, observacao});
+                let nome_estabelecimento = estabelecimento.nome;
+                let statusError = emailSender(rem, {nome, email, telefone, data, hora, observacao, nome_estabelecimento});
 
                 if (!statusError) {
                     res.json({message: 'success'});
